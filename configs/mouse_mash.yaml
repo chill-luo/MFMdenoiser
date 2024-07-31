@@ -1,0 +1,31 @@
+general:
+  exp_name: ma_base_02
+  pth_dir: 'pths/'
+  save_dir: 'results/'
+
+  dateset_class: 'SingleStackDataset'
+  raw_path: 'data/MA/raw/mouseactin.tif'
+  gt_path: 'data/MA/gt/mouseactin.tif'
+
+  norm: 'hard'
+  mask_ratio: 0.2
+
+train:
+  crop_size: null
+  batch_size: 1
+  num_epochs: 200
+  shuffling_epoch: 20
+  iter_save: 25
+  lr: 0.0004
+
+  apply_shuffling: False
+  std_kernel_size: 2
+  shuffling_tile_size: 4
+  masking_threshold: 0.1
+
+  fus_num: 2
+
+eval:
+  load_pth: 'epoch_200.pth'
+  num_predictions: 10
+  alignment: False

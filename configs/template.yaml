@@ -1,0 +1,36 @@
+general:
+  exp_name: conva
+  pth_dir: 'pths/'
+  save_dir: 'results/'
+
+  dateset_class: 'SingleStackDataset'
+  raw_path: 'data/ConvA/flower.tif'
+  gt_path: 'data/ConvA/gt.tif'
+  # dateset_class: 'MultipleStackDataset'
+  # # dateset_class: 'ContinuousStackDataset'
+  # raw_dir: 'data/ConvA/raw'
+  # gt_dir: 'data/ConvA/gt'
+
+  norm: 'hard'
+  mask_ratio: 0.2
+
+train:
+  crop_size: null
+  batch_size: 1
+  num_epochs: 200
+  shuffling_epoch: 20
+  iter_save: 50
+  lr: 0.0004
+
+  apply_shuffling: True
+  std_kernel_size: 2
+  shuffling_tile_size: 4
+  masking_threshold: 0.1
+
+  fus_num: 2
+  random_fus: True
+
+eval:
+  load_pth: 'epoch_200.pth'
+  num_predictions: 10
+  alignment: False

@@ -1,0 +1,33 @@
+general:
+  exp_name: plan_fused_rc2_02_crop512
+  pth_dir: 'pths/'
+  save_dir: 'results/'
+
+  # dateset_class: 'MultipleStackDataset'
+  dateset_class: 'ContinuousStackDataset'
+  raw_dir: 'data/_FMs/Planaria_C1/stacks'
+  gt_dir: 'data/_FMs/_GT/Planaria'
+
+  norm: 'hard'
+  mask_ratio: 0.2
+
+train:
+  crop_size: 512
+  batch_size: 1
+  num_epochs: 20
+  shuffling_epoch: 20
+  iter_save: 2
+  lr: 0.0004
+
+  apply_shuffling: False
+  std_kernel_size: 2
+  shuffling_tile_size: 4
+  masking_threshold: 0.1
+
+  fus_num: 2
+  random_fus: True
+
+eval:
+  load_pth: 'epoch_10.pth'
+  num_predictions: 10
+  alignment: True
