@@ -68,7 +68,7 @@ def train(config):
                     mask = (mask <  (1. - mask_ratio)).float().cuda()
 
                 output = model(mask * noisy_original_torch)
-                loss = l1_criteron((1 - mask) * output, (1 - mask) * noisy_shuffled_torch) 
+                loss = l1_criteron((1 - mask) * output, (1 - mask) * noisy_shuffled_torch) + l2_criteron(mask * output, mask * noisy_shuffled_torch) * 0.5
                 optimizer.zero_grad()
                 loss.backward()
                 optimizer.step()
