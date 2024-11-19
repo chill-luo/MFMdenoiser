@@ -1,0 +1,24 @@
+general:
+  exp_name: temp02
+  pth_dir: 'pths/'
+  save_dir: 'results/'
+
+  raw_dir: 'data/ConvA/raw'
+  gt_dir: 'data/ConvA/gt'      # set to 'null' when gt does not exist.
+
+  norm: 'hard'
+  mask_ratio: 0.8
+
+train:
+  crop_size: null
+  batch_size: 1
+  num_epochs: 200
+  iter_save: 25
+  lr: 0.0004
+
+  fus_num: 2
+  random_fus: False
+
+eval:
+  load_pth: 'epoch_200.pth'
+  num_predictions: 5
